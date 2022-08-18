@@ -13,7 +13,7 @@ namespace OwenAbilityScores
         public void CalculateAbilityScore()
         {
             double divided = RollResult / DivideBy;
-            int added = AddAmount += (int)divided;
+            int added = AddAmount + (int)divided;
             if (added < Minimum)
             {
                 Score = Minimum;
@@ -44,13 +44,13 @@ namespace OwenAbilityScores
             }
         }
 
-        static double ReadInt(int lastUsedValue, string prompt)
+        static int ReadInt(int lastUsedValue, string prompt)
         {
-            Console.WriteLine(prompt + " [" + lastUsedValue + "]: ");
+            Console.Write(prompt + " [" + lastUsedValue + "]: ");
             string inputValue = Console.ReadLine();
             if (int.TryParse(inputValue, out int chosenValue))
             {
-                Console.WriteLine(" using value" + chosenValue);
+                Console.WriteLine(" using value " + chosenValue);
                 return lastUsedValue;
             }
             else
@@ -62,7 +62,7 @@ namespace OwenAbilityScores
 
         static double ReadDouble(double lastUsedValue, string prompt)
         {
-            Console.WriteLine(prompt + " [" + lastUsedValue + "]: ");
+            Console.Write(prompt + " [" + lastUsedValue + "]: ");
             string inputValue = Console.ReadLine();
             if (double.TryParse(inputValue, out double chosenValue))
             {
